@@ -56,11 +56,34 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
+/*=== header ===*/
+.navbar {
+  background-color: #e3f2fd;
+  position: fixed;
+  top: 0;
+  right: 0px;
+  width: 100%;
+  z-index: 1;
+}
+#nav-nt-signin {
+  .hd-title {
+    margin: 0 auto;
+  }
+  span {
+    margin: 0 auto;
+    font-size: 25px;
+    font-family: serif;
+  }
+}
+/*==== flash ===*/
+.alert {
+  margin-top: 51px;
+  border-radius: 0;
+}
 /*=== submit-form ===*/
 #submit-form {
   padding: 1em 1.5em;
-  margin: 9em auto;
+  margin: 8em auto;
   border: double 5px #4ec4d3;
   background-color: white;
   h3 {
@@ -74,7 +97,6 @@ table {
     margin: 10px 0;
   }
 }
-
 /*===  Home#index  ===*/
 .home-index {
   margin-top: 100px;
@@ -89,7 +111,7 @@ table {
   }
   .startup {
     text-align: center;
-    padding: 0.5em 1em;
+    padding: 2.5em 1em;
     margin: 2em 0;
     color: #5d627b;
     background: white;

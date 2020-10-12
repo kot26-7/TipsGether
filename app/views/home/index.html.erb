@@ -1,2 +1,22 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% provide(:title, 'Home') %>
+<div class='container'>
+  <div class='row home-index'>
+    <div class='intro col-md-7'>
+      <h1>TipsGether にようこそ</h1>
+      <h6>このアプリでは、日々学んだことや役立つ情報を、</h6>
+      <h6>気軽にメモ・管理・他者にシェアをすることができます。</h6>
+    </div>
+    <div class='startup col-md-5'>
+      <% if user_signed_in? %>
+        <h4>ログアウトはこちらから</h4>
+        <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか?' }, class: 'btn btn-primary btn-block' %>
+      <% else %>
+        <h4>ログインはこちらから</h4>
+        <%= button_to 'ログイン', new_user_session_path, method: :get, class: 'btn btn-primary btn-block' %>
+        <p>or</p>
+        <%= button_to '新規登録', new_user_registration_path, method: :get, class: 'btn btn-success btn-block' %>
+        <h6>ゲストログイン</h6>
+      <% end %>
+    </div>
+  </div>
+</div>

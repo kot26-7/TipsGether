@@ -1,0 +1,16 @@
+<% provide(:title, 'ログイン') %>
+<div id='submit-form' class='col-12 col-sm-8 col-md-6'>
+  <h3>ログイン</h3>
+  <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email' %>
+    <%= f.password_field :password %>
+    <% if devise_mapping.rememberable? %>
+      <div class='form-group'>
+        <%= f.check_box :remember_me, name: 'remember_me' %>
+      </div>
+    <% end %>
+    <%= f.submit 'ログイン', class: 'btn btn-primary btn-block' %>
+  <% end %>
+  <p>or</p>
+  <%= button_to '新規登録を行う', new_user_registration_path, method: :get, class: 'btn btn-success btn-block' %>
+</div>

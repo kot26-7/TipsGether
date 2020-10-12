@@ -65,6 +65,8 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include ApplicationHelper
   config.include FactoryBot::Syntax::Methods
+  config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :system
 
   config.before(:each, type: :system) do
     driven_by :rack_test
@@ -72,6 +74,11 @@ RSpec.configure do |config|
 
   config.before(:each, type: :system, js: true) do
     driven_by :selenium_chrome_headless
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
 end
 

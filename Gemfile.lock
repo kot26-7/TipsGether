@@ -87,6 +87,7 @@ GEM
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
     crass (1.0.6)
+    database_cleaner (1.8.5)
     deep_merge (1.2.1)
     devise (4.7.3)
       bcrypt (~> 3.0)
@@ -321,6 +322,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   config
+  database_cleaner
   devise
   factory_bot_rails
   jbuilder (~> 2.5)

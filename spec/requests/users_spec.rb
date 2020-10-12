@@ -114,7 +114,6 @@ RSpec.describe 'Users', type: :request do
     end
 
     describe 'user#destroy' do
-
       it 'deletes an user' do
         expect do
           delete user_path, params: { id: user }

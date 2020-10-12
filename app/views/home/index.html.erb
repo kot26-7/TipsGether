@@ -7,9 +7,10 @@
       <h6>気軽にメモ・管理・他者にシェアをすることができます。</h6>
     </div>
     <div class='startup col-md-5'>
-      <h6>ログインはこちらから</h6>
-      <p>OR</p>
-      <h6>新規登録</h6>
+      <h4>ログインはこちらから</h4>
+      <%= button_to 'ログイン', new_user_session_path, method: :get, class: 'btn btn-primary btn-block' %>
+      <p>or</p>
+      <%= button_to '新規登録', new_user_registration_path, method: :get, class: 'btn btn-success btn-block' %>
       <h6>ゲストログイン</h6>
     </div>
   </div>

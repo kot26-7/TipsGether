@@ -1,6 +1,7 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "rails_bootstrap_forms";
 
 html, body, div, span, applet, object, iframe,
 p, blockquote, pre,
@@ -56,6 +57,24 @@ table {
   border-spacing: 0;
 }
 
+/*=== submit-form ===*/
+#submit-form {
+  padding: 1em 1.5em;
+  margin: 9em auto;
+  border: double 5px #4ec4d3;
+  background-color: white;
+  h3 {
+    text-align: center;
+    margin: 10px 0 25px;
+  }
+  p {
+    text-align: center;
+  }
+  .btn {
+    margin: 10px 0;
+  }
+}
+
 /*===  Home#index  ===*/
 .home-index {
   margin-top: 100px;
@@ -76,5 +95,11 @@ table {
     background: white;
     border-top: solid 5px #ffbb45;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    h4 {
+      margin: 10px 0;
+    }
+    .btn {
+      margin: 10px 0;
+    }
   }
 }

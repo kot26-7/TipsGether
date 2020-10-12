@@ -3,7 +3,7 @@
 @import "bootstrap";
 
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -38,6 +38,7 @@ body {
   line-height: 1;
   min-height: 100%;
   background-color: #fff5d3;
+  font-family: sans-serif;
 }
 ol, ul {
   list-style: none;
@@ -53,4 +54,27 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+/*===  Home#index  ===*/
+.home-index {
+  margin-top: 100px;
+  .intro {
+    h1 {
+      margin-bottom: 20px;
+      font-size: 3rem;
+    }
+    h6 {
+      margin: 0;
+    }
+  }
+  .startup {
+    text-align: center;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #ffbb45;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  }
 }

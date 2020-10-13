@@ -11,7 +11,7 @@
         <%=safe_join(@post.content.split("\n"),tag(:br))%>
       </h6>
       <div id='edt-delt-icons'>
-        <small><%= @post.updated_at %></small>
+        <small><%= l(@post.updated_at) %></small>
         <div class='icons'>
           <%= link_to edit_post_path(@post), class: 'edt-icon' do %>
             <i class='fas fa-edit fa-lg'></i>

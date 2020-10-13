@@ -11,3 +11,9 @@
     </div>
   <% end %>
 </div>
+<% if @posts.present? %>
+  <div id='indx-list' class='col-sm-8 col-md-8'>
+    <h4><%= "#{@user.username}の投稿一覧" %></h4>
+    <%= render partial: 'posts/post', collection: @posts %>
+  </div>
+<% end %>

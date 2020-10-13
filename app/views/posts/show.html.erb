@@ -1,0 +1,32 @@
+<% provide(:title, @post.title) %>
+<% if @post.user_id != current_user.id && @post.published == false %>
+  <div id='submit-form' class='col-sm-8 col-md-6'>
+    <h2>この投稿は非公開です。</h2>
+  </div>
+<% else %>
+  <div id='submit-form' class='col-11 col-sm-8 col-md-9'>
+    <div id='post-form'>
+      <h2><%= @post.title %></h2>
+      <hr id='post-line'>
+      <h6>
+        <%=safe_join(@post.content.split("\n"),tag(:br))%>
+      </h6>
+      <% if @post.user_id == current_user.id %>
+        <div id='edt-delt-icons'>
+          <%= link_to user_path(@post.user) do %>
+            <small><%= "投稿者: #{@post.user.username}" %></small>
+          <% end %></br>
+          <small><%= display_datetime(@post.updated_at) %></small>
+          <div class='icons'>
+            <%= link_to edit_post_path(@post), class: 'edt-icon' do %>
+              <i class='fas fa-edit fa-lg'></i>
+            <% end %>
+            <%= link_to post_path(@post), method: :delete, data: { confirm: Settings.delete_confirm_msg }, class: 'dlt-icon' do %>
+              <i class='fas fa-trash-alt fa-lg'></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

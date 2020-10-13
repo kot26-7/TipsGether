@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User', type: :system do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
   let!(:other_user) { create(:other_user) }
 
   before do
@@ -14,7 +14,7 @@ RSpec.describe 'User', type: :system do
     end
 
     it 'check if contents are displayed correctly on users_path' do
-      within('#users-list') do
+      within('#indx-list') do
         expect(page).to have_content 'ユーザー一覧'
         expect(page).to have_content user.username
         expect(page).to have_content other_user.username
@@ -22,14 +22,14 @@ RSpec.describe 'User', type: :system do
     end
 
     it 'user.username を押して user ページに飛ぶ' do
-      within('#users-list') do
+      within('#indx-list') do
         click_link user.username
       end
       expect(current_path).to eq user_path(user)
     end
 
     it 'other_user を押して other_user ページに飛ぶ' do
-      within('#users-list') do
+      within('#indx-list') do
         click_link other_user.username
       end
       expect(current_path).to eq user_path(other_user)
@@ -37,19 +37,38 @@ RSpec.describe 'User', type: :system do
   end
 
   describe 'GET user#show' do
-    it 'check if contents are displayed correctly on user_path' do
-      visit user_path(user)
-      within('#user-profile') do
-        expect(page).to have_content user.username
-        expect(page).to have_content user.email
+    context 'posts dont exist' do
+      it 'check if contents are displayed correctly on user_path' do
+        visit user_path(user)
+        within('#user-profile') do
+          expect(page).to have_content user.username
+          expect(page).to have_content user.email
+        end
+        expect(page).not_to have_content "#{user.username}の投稿一覧"
+      end
+
+      it 'check if contents are displayed correctly on another user_path' do
+        visit user_path(other_user)
+        within('#user-profile') do
+          expect(page).to have_content other_user.username
+          expect(page).not_to have_content other_user.email
+        end
       end
     end
 
-    it 'check if contents are displayed correctly on another user_path' do
-      visit user_path(other_user)
-      within('#user-profile') do
-        expect(page).to have_content other_user.username
-        expect(page).not_to have_content other_user.email
+    context 'posts exist' do
+      let!(:post) { create(:published_post) }
+      let!(:unpublished_post) { create(:unpublished_post) }
+
+      it 'check if contents are displayed correctly on user_path' do
+        visit user_path(user)
+        expect(page).to have_content "#{user.username}の投稿一覧"
+        within('#indx-list') do
+          expect(page).to have_link post.title
+          expect(page).to have_link unpublished_post.title
+          expect(page).to have_link "投稿者: #{post.user.username}"
+          expect(page).to have_link "投稿者: #{unpublished_post.user.username}"
+        end
       end
     end
   end
@@ -83,7 +102,7 @@ RSpec.describe 'User', type: :system do
       fill_in 'Username', with: 'testhoge'
       fill_in '紹介文', with: 'this is sample'
       click_button 'プロフィールを更新'
-      expect(current_path).to eq user_path(1)
+      expect(current_path).to eq user_path(user)
       expect(page).to have_content 'ユーザー情報が更新されました。'
       within('#user-profile') do
         expect(page).to have_content user.introduce

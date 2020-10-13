@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts
+    @posts = @posts.where(published: true) unless current_user == @user
   end
 
   def edit

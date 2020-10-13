@@ -1,0 +1,11 @@
+<div class='media col-sm-10 col-md-10'>
+  <div class='media-body'>
+    <%= link_to post_path(post), class: 'indx-info' do %>
+      <h5><%= post.title %></h5>
+    <% end %>
+    <%= link_to user_path(post.user.id), class: 'indx-info' do %>
+      <%= "投稿者: #{post.user.username}" %>
+    <% end %>
+    <small><%= "(#{display_datetime(post.updated_at)})" %></small>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<%= link_to post_path(post), class: 'indx-info' do %>
+  <div class='media col-sm-10 col-md-10'>
+    <div class='media-body'>
+      <h5><%= post.title %></h5>
+      <%= "投稿者: #{post.user.username}" %>
+    </div>
+  </div>
+<% end %>

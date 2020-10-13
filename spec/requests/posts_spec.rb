@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Containers', type: :request do
+RSpec.describe 'Posts', type: :request do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:other_user) }
 
@@ -153,7 +153,7 @@ RSpec.describe 'Containers', type: :request do
           end.to change(Post, :count).by 1
         end
 
-        it 'redirects to user_container_path' do
+        it 'redirects to post_path' do
           post posts_path, params: { post: post_params }
           expect(response).to redirect_to post_path(1)
         end
@@ -193,7 +193,7 @@ RSpec.describe 'Containers', type: :request do
           expect(post.reload.title).to eq 'sample'
         end
 
-        it 'redirects to user_container_path' do
+        it 'redirects to post_path' do
           patch post_path, params: { post: post_params }
           expect(response).to redirect_to post_path(post)
         end

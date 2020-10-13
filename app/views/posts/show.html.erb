@@ -15,7 +15,7 @@
         <%= link_to user_path(@post.user) do %>
           <small><%= "投稿者: #{@post.user.username}" %></small>
         <% end %></br>
-        <small><%= @post.updated_at %></small>
+        <small><%= display_datetime(@post.updated_at) %></small>
         <div class='icons'>
           <%= link_to edit_post_path(@post), class: 'edt-icon' do %>
             <i class='fas fa-edit fa-lg'></i>

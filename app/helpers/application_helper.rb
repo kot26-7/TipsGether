@@ -6,4 +6,13 @@ module ApplicationHelper
       Settings.base_title
     end
   end
+
+  # datetime専用メソッド
+  def display_datetime(datetime)
+    if datetime.present?
+      datetime.strftime('%Y/%m/%d %H:%M')
+    else
+      '2020/01/01 00:00'
+    end
+  end
 end

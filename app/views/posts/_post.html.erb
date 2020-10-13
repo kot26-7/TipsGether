@@ -6,6 +6,6 @@
     <%= link_to user_path(post.user.id), class: 'indx-info' do %>
       <%= "投稿者: #{post.user.username}" %>
     <% end %>
-    <small><%= "(#{post.updated_at})" %></small>
+    <small><%= "(#{display_datetime(post.updated_at)})" %></small>
   </div>
 </div>

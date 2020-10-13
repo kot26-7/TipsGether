@@ -10,4 +10,5 @@
   <% end %>
   <p>or</p>
   <%= button_to 'ログインを行う', new_user_session_path, method: :get, class: 'btn btn-success btn-block' %>
+  <%= button_to 'ゲストログイン(閲覧用)', guest_login_users_path, data: { confirm: Settings.guest_login_msg }, class: 'btn btn-info btn-block' %>
 </div>

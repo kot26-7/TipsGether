@@ -1,1 +1,4 @@
 base_title: 'TipsGether'
+guest_login_msg: 'ゲストとしてログインしますか?'
+delete_confirm_msg: '本当に削除しますか?'
+invalid_access_msg: '不正なアクセスです。'

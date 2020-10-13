@@ -1,5 +1,15 @@
-<nav id='nav-nt-signin' class='navbar navbar-light'>
-  <%= link_to root_path, class: 'hd-title' do %>
-    <span class='navbar-brand mb-0 h1'>TipsGether</span>
-  <% end %>
-</nav>
+<% if user_signed_in? %>
+  <nav class='navbar navbar-expand-lg navbar-light'>
+    <%= link_to 'TipsGether', root_path, class: 'navbar-brand' %>
+    <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+      <span class='navbar-toggler-icon'></span>
+    </button>
+    <%= render 'layouts/header_nav' %>
+  </nav>
+<% else %>
+  <nav id='nav-nt-signin' class='navbar navbar-light'>
+    <%= link_to root_path, class: 'hd-title' do %>
+      <span class='navbar-brand mb-0 h1'>TipsGether</span>
+    <% end %>
+  </nav>
+<% end %>

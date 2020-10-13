@@ -7,7 +7,7 @@ html, body, div, span, applet, object, iframe,
 p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
+strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
@@ -75,6 +75,11 @@ table {
     font-family: serif;
   }
 }
+.navbar-expand-lg {
+  .navbar-brand {
+    font-family: serif;
+  }
+}
 /*==== flash ===*/
 .alert {
   margin-top: 51px;
@@ -124,4 +129,77 @@ table {
       margin: 10px 0;
     }
   }
+}
+
+/*=== User#show page ===*/
+#user-profile {
+  padding: 1em 1.5em;
+  margin: 7em auto;
+  background-color: #e8f5e9;
+  border: dashed 3px #4caf50;
+  box-shadow: 0 0 0 10px #e8f5e9;
+  border-radius: 5px;
+  .image-dammy {
+    height: 150px;
+    background-color: white;
+    width: 50%;
+    margin: 10px auto;
+  }
+  #user-name {
+    text-align: center;
+  }
+  #user-address {
+    text-align: center;
+  }
+  #user-introduce {
+    margin: 30px auto;
+    padding: 0px 25px;
+  }
+}
+
+/*=== User#index page ===*/
+#users-list {
+  position: relative;
+  margin: 7em auto;
+  padding: 35px 20px 15px;
+  width: 90%;
+  background: #fff;
+  color: #555555;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 2px #ccc;
+  &:before {
+    left: 80px;
+  }
+  &:after {
+    right: 80px;
+  }
+  h4 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .user-info {
+    text-decoration: none;
+    color: black;
+  }
+  .image-dammy {
+    height: 64px;
+    width: 64px;
+    background-color: white;
+    border: solid 1px;
+  }
+  .media {
+    border-top: dashed 2px #000;
+    margin: 15px auto;
+    padding-top: 15px;
+  }
+}
+#users-list::before,
+#users-list::after {
+  position: absolute;
+  content: '';
+  top: 15px;
+  width: 30px;
+  border: 1.5px solid #C0C0C0;
+  border-radius: 20px;
+  box-shadow: 0 -1px 2px #555;
 }

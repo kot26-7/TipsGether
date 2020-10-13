@@ -11,6 +11,9 @@
         <%=safe_join(@post.content.split("\n"),tag(:br))%>
       </h6>
       <div id='edt-delt-icons'>
+        <%= link_to user_path(@post.user) do %>
+          <small><%= "投稿者: #{@post.user.username}" %></small>
+        <% end %></br>
         <small><%= l(@post.updated_at) %></small>
         <div class='icons'>
           <%= link_to edit_post_path(@post), class: 'edt-icon' do %>

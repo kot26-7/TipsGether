@@ -61,19 +61,11 @@ RSpec.describe 'Home', type: :system do
 
       it 'check if contents are displayed correctly on root' do
         within('.navbar-nav') do
-          expect(page).to have_link 'ホーム'
           expect(page).to have_link 'ユーザー一覧'
           expect(page).to have_link 'プロフィール'
           expect(page).to have_link 'プロフィール編集'
           expect(page).to have_link 'ログアウト'
         end
-      end
-
-      it 'ホーム ボタンを押してホームに飛ぶ' do
-        within('.navbar-nav') do
-          click_link 'ホーム'
-        end
-        expect(current_path).to eq root_path
       end
 
       it 'ユーザー一覧 を押してユーザー一覧ページに飛ぶ' do

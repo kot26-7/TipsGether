@@ -114,6 +114,8 @@ RSpec.describe 'Users', type: :request do
     end
 
     describe 'user#destroy' do
+      let!(:post) { create(:published_post) }
+
       it 'deletes an user' do
         expect do
           delete user_path, params: { id: user }
@@ -128,6 +130,12 @@ RSpec.describe 'Users', type: :request do
       it 'invalid access and redirect to user_path' do
         delete user_path(other_user)
         expect(response).to redirect_to user_path(user)
+      end
+
+      it 'deletes a post as well' do
+        expect do
+          delete user_path, params: { id: user }
+        end.to change(Post, :count).by(-1)
       end
     end
   end

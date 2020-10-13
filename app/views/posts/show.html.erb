@@ -1,3 +1,4 @@
+<% provide(:title, @post.title) %>
 <% if @post.user_id != current_user.id && @post.published == false %>
   <div id='submit-form' class='col-sm-8 col-md-6'>
     <h2>この投稿は非公開です。</h2>
@@ -14,7 +15,7 @@
         <%= link_to user_path(@post.user) do %>
           <small><%= "投稿者: #{@post.user.username}" %></small>
         <% end %></br>
-        <small><%= l(@post.updated_at) %></small>
+        <small><%= @post.updated_at %></small>
         <div class='icons'>
           <%= link_to edit_post_path(@post), class: 'edt-icon' do %>
             <i class='fas fa-edit fa-lg'></i>

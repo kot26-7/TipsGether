@@ -76,7 +76,7 @@ RSpec.configure do |config|
     driven_by :selenium_chrome_headless
   end
 
-  config.after(:each) do
+  config.before(:each) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end

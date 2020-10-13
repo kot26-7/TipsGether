@@ -7,5 +7,12 @@ FactoryBot.define do
     factory :published_post, class: 'Post' do
       published { true }
     end
+
+    factory :unpublished_other_post, class: 'Post' do
+      user_id { 2 }
+      factory :published_other_post, class: 'Post' do
+        published { true }
+      end
+    end
   end
 end

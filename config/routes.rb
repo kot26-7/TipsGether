@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :create] do
     post 'guest_login', on: :collection
   end
-  resources :posts
+  resources :posts do
+    resources :favorites, only: [:create, :destroy]
+  end
 end

@@ -7,5 +7,6 @@
       <%= "投稿者: #{post.user.username}" %>
     <% end %>
     <small><%= "(#{display_datetime(post.updated_at)})" %></small>
+    <span><i class='fas fa-thumbs-up'></i><%= post.favorites.size %></span>
   </div>
 </div>

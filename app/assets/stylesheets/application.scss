@@ -191,6 +191,12 @@ table {
     border-top: dashed 2px #000;
     margin: 15px auto;
     padding-top: 15px;
+    span {
+      padding-left: 5px;
+      i {
+        padding-right: 3px;
+      }
+    }
   }
 }
 #indx-list::before,
@@ -221,6 +227,22 @@ table {
     .dlt-icon {
       text-decoration: none;
       color: red;
+    }
+  }
+  #fav-place {
+    width: 100%;
+    margin-top: 17px;
+    h6 {
+      display: inline;
+      padding-left: 10px;
+    }
+    .already-fav {
+      text-decoration: none;
+      color: darkorange;
+    }
+    .before-fav {
+      text-decoration: none;
+      color: black;
     }
   }
 }

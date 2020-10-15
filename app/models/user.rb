@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   before_save { self.email = email.downcase }
@@ -15,5 +16,9 @@ class User < ApplicationRecord
       user.username = 'guestuser'
       user.password = SecureRandom.urlsafe_base64
     end
+  end
+
+  def already_fav?(post)
+    favorites.exists?(post_id: post.id)
   end
 end

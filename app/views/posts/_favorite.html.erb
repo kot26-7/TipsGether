@@ -1,0 +1,11 @@
+<% if current_user.already_fav?(post) %>
+  <%= link_to post_favorite_path(post, Favorite.find_by(post: post, user: current_user)), method: :delete, class: 'already-fav', remote: true do %>
+    <i class='fas fa-thumbs-up fa-lg'></i>
+  <% end %>
+  <h6><%= "#{post.favorites.count} : いいね!!" %></h6>
+<% else %>
+  <%= link_to post_favorites_path(post), method: :post, class: 'before-fav', remote: true do %>
+    <i class='far fa-thumbs-up fa-lg'></i>
+  <% end %>
+  <h6><%= "#{post.favorites.count} : この投稿にいいねする" %></h6>
+<% end %>

@@ -26,6 +26,10 @@
             <% end %>
           </div>
         </div>
+      <% else %>
+        <div id='fav-place'>
+          <%= render 'favorite', post: @post %>
+        </div>
       <% end %>
     </div>
   </div>

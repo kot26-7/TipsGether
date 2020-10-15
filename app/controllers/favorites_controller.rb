@@ -1,12 +1,21 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
-    @favorite = current_user.favorites.create(post_id: params[:post_id])
-    redirect_back(fallback_location: root_path)
+    @post = Post.find(params[:post_id])
+    current_user.favorites.create(post_id: params[:post_id])
+    respond_to do |format|
+      format.html { redirect_to post_path(@post) }
+      format.js
+    end
   end
 
   def destroy
-    @favorite = favorite.find_by(post_id: params[:post_id], user_id: current_user.id)
-    @favorite.destroy
-    redirect_back(fallback_location: root_path)
+    @post = Post.find(params[:post_id])
+    Favorite.find_by(post_id: params[:post_id], user_id: current_user.id).destroy
+    respond_to do |format|
+      format.html { redirect_to post_path(@post) }
+      format.js
+    end
   end
 end

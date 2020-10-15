@@ -223,4 +223,20 @@ table {
       color: red;
     }
   }
+  #fav-place {
+    width: 100%;
+    margin-top: 17px;
+    h6 {
+      display: inline;
+      padding-left: 10px;
+    }
+    .already-fav {
+      text-decoration: none;
+      color: darkorange;
+    }
+    .before-fav {
+      text-decoration: none;
+      color: black;
+    }
+  }
 }

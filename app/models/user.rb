@@ -19,6 +19,6 @@ class User < ApplicationRecord
   end
 
   def already_fav?(post)
-    self.favorites.exists?(post_id: post.id)
+    favorites.exists?(post_id: post.id)
   end
 end

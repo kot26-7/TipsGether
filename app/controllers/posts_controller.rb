@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @favorite = Favorite.new
+    @comment = Comment.new
   end
 
   def new

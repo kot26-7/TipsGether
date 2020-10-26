@@ -199,6 +199,15 @@ table {
     }
   }
 }
+.media-body h5 {
+  font-weight: bold;
+  span {
+    font-weight: normal;
+    font-size: 15px;
+    float: right;
+    margin: 5px;
+  }
+}
 #indx-list::before,
 #indx-list::after {
   position: absolute;

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user, except: [:index, :show, :guest_login]
 
   def index
-    @users = User.all
+    @users = User.all.includes(:posts)
   end
 
   def show

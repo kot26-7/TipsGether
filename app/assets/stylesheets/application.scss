@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 html {
   height: 100%;
-  background-color: #fff5d3;
+  background-color: #d5eeff;
 }
 a {
   text-decoration: none;
@@ -38,7 +38,7 @@ a {
 body {
   line-height: 1;
   min-height: 100%;
-  background-color: #fff5d3;
+  background-color: #d5eeff;
   font-family: sans-serif;
 }
 ol, ul {
@@ -58,7 +58,7 @@ table {
 }
 /*=== header ===*/
 .navbar {
-  background-color: #e3f2fd;
+  background-color: #78bbe6;
   position: fixed;
   top: 0;
   right: 0px;
@@ -89,7 +89,7 @@ table {
 #submit-form {
   padding: 1em 1.5em;
   margin: 8em auto;
-  border: double 5px #4ec4d3;
+  border: double 5px #f99f48;
   background-color: white;
   h3 {
     text-align: center;
@@ -213,7 +213,7 @@ table {
 /*=== Post#show page ===*/
 #post-form {
   #post-line {
-    border-top: 2px dashed blue;
+    border-top: 2px dashed #1b435d;
   }
   #edt-delt-icons {
     margin-top: 30px;

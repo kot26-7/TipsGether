@@ -49,7 +49,7 @@ RSpec.describe 'Comment', type: :system do
           fill_in 'コメント', with: 'this is sample comment hello'
           click_button 'コメントする'
         end
-        expect(page).not_to have_content 'Comments'
+        expect(page).to have_content 'Comments'
         within('#comment-field') do
           expect(page).to have_content user.username
           expect(page).to have_content 'this is sample comment hello'

@@ -122,8 +122,8 @@ RSpec.describe 'User', type: :system do
       page.accept_confirm do
         click_link 'アカウントを削除'
       end
-      expect(current_path).to eq root_path
       expect(page).to have_content 'ユーザーアカウントが削除されました。'
+      expect(current_path).to eq root_path
       visit current_path
       expect(page).not_to have_content 'ユーザーアカウントが削除されました。'
     end

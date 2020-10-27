@@ -31,7 +31,15 @@
           <%= render 'favorite', post: @post %>
         </div>
       <% end %>
-      <%= render partial: 'comments_field', locals: { post: @post, comments: @comments, comment: @comment } %>
+      <div id='comment-field'>
+        <div id='comments'>
+          <%= render partial: 'comments/comments_form', locals: { comments: @comments } %>
+        </div>
+        <%= bootstrap_form_for [@post, @comment], remote: true do |f| %>
+          <%= f.text_area :content, label: 'コメント', help: '100字以内' %>
+          <%= f.submit 'コメントする' %>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>

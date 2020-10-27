@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 html {
   height: 100%;
-  background-color: #fff5d3;
+  background-color: #d5eeff;
 }
 a {
   text-decoration: none;
@@ -38,7 +38,7 @@ a {
 body {
   line-height: 1;
   min-height: 100%;
-  background-color: #fff5d3;
+  background-color: #d5eeff;
   font-family: sans-serif;
 }
 ol, ul {
@@ -58,7 +58,7 @@ table {
 }
 /*=== header ===*/
 .navbar {
-  background-color: #e3f2fd;
+  background-color: #78bbe6;
   position: fixed;
   top: 0;
   right: 0px;
@@ -89,7 +89,7 @@ table {
 #submit-form {
   padding: 1em 1.5em;
   margin: 8em auto;
-  border: double 5px #4ec4d3;
+  border: double 5px #f99f48;
   background-color: white;
   h3 {
     text-align: center;
@@ -181,12 +181,6 @@ table {
     text-decoration: none;
     color: black;
   }
-  .image-dammy {
-    height: 64px;
-    width: 64px;
-    background-color: white;
-    border: solid 1px;
-  }
   .media {
     border-top: dashed 2px #000;
     margin: 15px auto;
@@ -199,6 +193,15 @@ table {
     }
   }
 }
+.media-body h5 {
+  font-weight: bold;
+  span {
+    font-weight: normal;
+    font-size: 15px;
+    float: right;
+    margin: 5px;
+  }
+}
 #indx-list::before,
 #indx-list::after {
   position: absolute;
@@ -209,11 +212,16 @@ table {
   border-radius: 20px;
   box-shadow: 0 -1px 2px #555;
 }
-
+.image-dammy {
+  height: 64px;
+  width: 64px;
+  background-color: white;
+  border: solid 1px;
+}
 /*=== Post#show page ===*/
 #post-form {
   #post-line {
-    border-top: 2px dashed blue;
+    border-top: 2px dashed #1b435d;
   }
   #edt-delt-icons {
     margin-top: 30px;
@@ -244,5 +252,27 @@ table {
       text-decoration: none;
       color: black;
     }
+  }
+}
+
+#comment-field {
+  margin-top: 30px;
+  .btn {
+    margin-top: 0;
+  }
+  h6 {
+    font-weight: bold;
+  }
+  p {
+    text-align: left;
+  }
+  #comments-list {
+    border-bottom: solid 1px rgba(27, 67, 93, 0.5);
+    margin-bottom: 10px;
+  }
+  .media {
+    padding-top: 10px;
+    margin-bottom: 15px;
+    border-top: solid 1px rgba(27, 67, 93, 0.5);
   }
 }

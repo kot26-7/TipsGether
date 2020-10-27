@@ -118,15 +118,15 @@ RSpec.describe 'User', type: :system do
       expect(page).to have_content 'is invalid'
     end
 
-    # it 'Delete user successfully', js: true do
-    #   page.accept_confirm do
-    #     click_link 'アカウントを削除'
-    #   end
-    #   expect(current_path).to eq root_path
-    #   expect(page).to have_content 'ユーザーアカウントが削除されました。'
-    #   visit current_path
-    #   expect(page).not_to have_content 'ユーザーアカウントが削除されました。'
-    # end
+    it 'Delete user successfully', js: true do
+      page.accept_confirm do
+        click_link 'アカウントを削除'
+      end
+      expect(page).to have_content 'ユーザーアカウントが削除されました。'
+      expect(current_path).to eq root_path
+      visit current_path
+      expect(page).not_to have_content 'ユーザーアカウントが削除されました。'
+    end
   end
 
   describe 'GET /users/password_edit' do

@@ -3,13 +3,13 @@ class UsersController < ApplicationController
   before_action :correct_user, except: [:index, :show, :guest_login]
 
   def index
-    @users = User.all
+    @users = User.all.includes(:posts)
   end
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
-    @posts = @posts.where(published: true) unless current_user == @user
+    @posts = @user.posts.includes(:favorites)
+    @posts = @posts.where(published: true).includes(:favorites) unless current_user == @user
   end
 
   def edit

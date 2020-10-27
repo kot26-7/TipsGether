@@ -14,35 +14,43 @@ RSpec.describe Post, type: :model do
 
   context 'title is invalid' do
     it 'invalid with nil' do
-      post = Post.new(post_params[title: nil])
+      post_params[:title] = nil
+      post = Post.new(post_params)
       expect(post).to be_invalid
     end
 
     it 'invalid with empty' do
-      post = Post.new(post_params[title: ''])
+      post_params[:title] = ''
+      post = Post.new(post_params)
       expect(post).to be_invalid
     end
 
     it 'invalid with greater than 75 words' do
-      post = Post.new(post_params[title: 'a' * 76])
+      post_params[:title] = 'a' * 76
+      post = Post.new(post_params)
       expect(post).to be_invalid
     end
   end
 
   context 'content is invalid' do
     it 'invalid with nil' do
-      post = Post.new(post_params[content: nil])
+      post_params[:content] = nil
+      post = Post.new(post_params)
       expect(post).to be_invalid
     end
 
     it 'invalid with empty' do
-      post = Post.new(post_params[content: ''])
+      post_params[:content] = ''
+      post = Post.new(post_params)
       expect(post).to be_invalid
     end
 
     it 'invalid with greater than 750 words' do
-      post = Post.new(post_params[content: 'a' * 751])
+      post_params[:content] = 'a' * 751
+      post = Post.new(post_params)
       expect(post).to be_invalid
+      post.content = 'a' * 750
+      expect(post).to be_valid
     end
   end
 end

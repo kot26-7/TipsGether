@@ -181,12 +181,6 @@ table {
     text-decoration: none;
     color: black;
   }
-  .image-dammy {
-    height: 64px;
-    width: 64px;
-    background-color: white;
-    border: solid 1px;
-  }
   .media {
     border-top: dashed 2px #000;
     margin: 15px auto;
@@ -218,7 +212,12 @@ table {
   border-radius: 20px;
   box-shadow: 0 -1px 2px #555;
 }
-
+.image-dammy {
+  height: 64px;
+  width: 64px;
+  background-color: white;
+  border: solid 1px;
+}
 /*=== Post#show page ===*/
 #post-form {
   #post-line {
@@ -253,5 +252,27 @@ table {
       text-decoration: none;
       color: black;
     }
+  }
+}
+
+#comment-field {
+  margin-top: 30px;
+  .btn {
+    margin-top: 0;
+  }
+  h6 {
+    font-weight: bold;
+  }
+  p {
+    text-align: left;
+  }
+  #comments-list {
+    border-bottom: solid 1px rgba(27, 67, 93, 0.5);
+    margin-bottom: 10px;
+  }
+  .media {
+    padding-top: 10px;
+    margin-bottom: 15px;
+    border-top: solid 1px rgba(27, 67, 93, 0.5);
   }
 }

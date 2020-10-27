@@ -31,6 +31,7 @@
           <%= render 'favorite', post: @post %>
         </div>
       <% end %>
+      <%= render partial: 'comments_field', locals: { post: @post, comments: @comments, comment: @comment } %>
     </div>
   </div>
 <% end %>

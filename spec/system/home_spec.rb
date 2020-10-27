@@ -38,17 +38,17 @@ RSpec.describe 'Home', type: :system do
         expect(current_path).to eq new_user_session_path
       end
 
-      # it 'ゲストログイン(閲覧用)を押してログインする', js: true do
-      #   within('.startup') do
-      #     page.accept_confirm do
-      #       click_button 'ゲストログイン(閲覧用)'
-      #     end
-      #   end
-      #   expect(page).to have_content 'ゲストユーザーとしてログインしました。'
-      #   expect(current_path).to eq root_path
-      #   visit current_path
-      #   expect(page).not_to have_content 'ゲストユーザーとしてログインしました。'
-      # end
+      it 'ゲストログイン(閲覧用)を押してログインする', js: true do
+        within('.startup') do
+          page.accept_confirm do
+            click_button 'ゲストログイン(閲覧用)'
+          end
+        end
+        expect(page).to have_content 'ゲストユーザーとしてログインしました。'
+        expect(current_path).to eq root_path
+        visit current_path
+        expect(page).not_to have_content 'ゲストユーザーとしてログインしました。'
+      end
     end
 
     context 'if signin' do
@@ -89,17 +89,17 @@ RSpec.describe 'Home', type: :system do
         expect(current_path).to eq edit_user_path(user)
       end
 
-      # it 'ログアウト を押してログアウトする', js: true do
-      #   within('.navbar-nav') do
-      #     page.accept_confirm do
-      #       click_link 'ログアウト'
-      #     end
-      #   end
-      #   expect(page).to have_content 'ログアウトしました。'
-      #   expect(current_path).to eq root_path
-      #   visit current_path
-      #   expect(page).not_to have_content 'ログアウトしました。'
-      # end
+      it 'ログアウト を押してログアウトする', js: true do
+        within('.navbar-nav') do
+          page.accept_confirm do
+            click_link 'ログアウト'
+          end
+        end
+        expect(page).to have_content 'ログアウトしました。'
+        expect(current_path).to eq root_path
+        visit current_path
+        expect(page).not_to have_content 'ログアウトしました。'
+      end
     end
   end
 end

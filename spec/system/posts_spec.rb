@@ -88,15 +88,15 @@ RSpec.describe 'Post', type: :system do
       end
     end
 
-    # it 'Delete product successfully', js: true do
-    #   page.accept_confirm do
-    #     find('.dlt-icon').click
-    #   end
-    #   expect(page).to have_content '投稿が削除されました。'
-    #   expect(current_path).to eq user_path(user)
-    #   visit current_path
-    #   expect(page).not_to have_content '投稿が削除されました。'
-    # end
+    it 'Delete product successfully', js: true do
+      page.accept_confirm do
+        find('.dlt-icon').click
+      end
+      expect(page).to have_content '投稿が削除されました。'
+      expect(current_path).to eq user_path(user)
+      visit current_path
+      expect(page).not_to have_content '投稿が削除されました。'
+    end
   end
 
   describe 'posts#new' do

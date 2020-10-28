@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { maximum: 50 },
                        format: { with: VALID_USERNAME_REGEX }
   validates :introduce, length: { maximum: 500 }
+  mount_uploader :image, ProfileImageUploader
 
   def self.guest
     find_or_create_by!(email: 'sampleuser@example.com') do |user|

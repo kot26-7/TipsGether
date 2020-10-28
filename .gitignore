@@ -27,3 +27,5 @@
 /config/master.key
 /db/postgresql/*
 .env
+.DS_Store
+public/uploads/*

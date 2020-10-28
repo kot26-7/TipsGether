@@ -56,6 +56,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+#error-msg {
+  color: red;
+}
 /*=== header ===*/
 .navbar {
   background-color: #78bbe6;
@@ -136,6 +139,24 @@ table {
     .btn {
       margin: 10px 0;
     }
+  }
+}
+
+/*=== Home#search page ===*/
+.results {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: dotted 3px;
+  .result-field {
+    margin: 10px auto;
+    h6 {
+      text-align: center;
+      color: black;
+    }
+  }
+  .r-post {
+    border-top: solid 1px;
+    padding-top: 10px;
   }
 }
 

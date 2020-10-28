@@ -22,4 +22,8 @@ class User < ApplicationRecord
   def already_fav?(post)
     favorites.exists?(post_id: post.id)
   end
+
+  def self.search(keyword)
+    User.where(['username LIKE ?', "%#{keyword}%"])
+  end
 end

@@ -42,7 +42,7 @@ RSpec.describe 'Home', type: :request do
         end
 
         it 'displayed on correct msg' do
-          expect(response.body).to include 'あなたの検索は、どのユーザー・投稿にも一致しませんでした。'
+          expect(response.body).to include '検索が一致しませんでした。再度お試しください。'
         end
       end
 
@@ -60,7 +60,7 @@ RSpec.describe 'Home', type: :request do
         end
 
         it 'displayed on correct msg' do
-          expect(response.body).to include 'あなたの検索は、どのユーザー・投稿にも一致しませんでした。'
+          expect(response.body).to include '検索が一致しませんでした。再度お試しください。'
         end
       end
 
@@ -133,7 +133,7 @@ RSpec.describe 'Home', type: :request do
         end
 
         it 'displayed on correct msg' do
-          expect(response.body).to include 'あなたの検索は、どのユーザー・投稿にも一致しませんでした。'
+          expect(response.body).to include '検索が一致しませんでした。再度お試しください。'
         end
       end
     end

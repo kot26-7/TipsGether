@@ -1,6 +1,8 @@
 <% provide(:title, @user.username) %>
 <div id='user-profile' class='col-sm-8 col-md-8'>
-  <div class='image-dammy'></div>
+  <% unless @user.image.file.nil? %>
+    <%= image_tag @user.image.to_s, class: 'col-11 col-sm-6 col-md-6 col-lg-5 profile-img' %>
+  <% end %>
   <h4 id='user-name'><%= @user.username %></h4>
   <% if current_user == @user %>
     <h6 id='user-address'><%= @user.email %></h6>

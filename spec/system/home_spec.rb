@@ -53,6 +53,10 @@ RSpec.describe 'Home', type: :system do
 
     context 'if signin' do
       let!(:user) { create(:user) }
+      let!(:other_user) { create(:other_user) }
+      let!(:post1) { create(:published_other_post, title: 'hello') }
+      let!(:post2) { create(:published_post, title: 'hi') }
+      let!(:post3) { create(:unpublished_other_post, title: 'hisample') }
 
       before do
         sign_in user
@@ -60,11 +64,14 @@ RSpec.describe 'Home', type: :system do
       end
 
       it 'check if contents are displayed correctly on root' do
-        within('.navbar-nav') do
+        within('.navbar') do
           expect(page).to have_link 'ユーザー一覧'
           expect(page).to have_link 'プロフィール'
           expect(page).to have_link 'プロフィール編集'
           expect(page).to have_link 'ログアウト'
+          expect(page).to have_field 'Search'
+          expect(page).to have_button '検索'
+          expect(page).to have_select(options: ['検索対象', 'ユーザー', '投稿'])
         end
       end
 
@@ -99,6 +106,52 @@ RSpec.describe 'Home', type: :system do
         expect(current_path).to eq root_path
         visit current_path
         expect(page).not_to have_content 'ログアウトしました。'
+      end
+
+      it 'そのまま検索ボタンをおす' do
+        within('.navbar') do
+          click_button '検索'
+        end
+        expect(page).to have_content '検索が一致しませんでした。再度お試しください。'
+        expect(page).to have_content 'キーワードが設定されていません。再度検索を行ってください。'
+        expect(current_path).to eq search_path
+      end
+
+      it '検索対象を選択したまま検索する' do
+        within('.navbar') do
+          fill_in 'Search', with: 'sample'
+          click_button '検索'
+        end
+        expect(page).to have_content '検索対象が設定されていません。再度お試しください。'
+        expect(current_path).to eq search_path
+      end
+
+      it 'ユーザーを選択し検索する' do
+        within('.navbar') do
+          find("option[value='2']").select_option
+          fill_in 'Search', with: 'foo'
+          click_button '検索'
+        end
+        expect(page).to have_content 'ユーザーの検索結果'
+        expect(page).to have_content "ユーザー名: #{other_user.username}"
+        expect(page).not_to have_content "ユーザー名: #{user.username}"
+        expect(current_path).to eq search_path
+      end
+
+      it '投稿を選択し検索する' do
+        within('.navbar') do
+          find("option[value='3']").select_option
+          fill_in 'Search', with: 'hi'
+          click_button '検索'
+        end
+        expect(page).to have_content '投稿の検索結果'
+        expect(page).to have_content "タイトル: #{post2.title}"
+        expect(page).to have_content "投稿者: #{post2.user.username}"
+        expect(page).not_to have_content "タイトル: #{post1.title}"
+        expect(page).not_to have_content "投稿者: #{post1.user.username}"
+        expect(page).not_to have_content "タイトル: #{post3.title}"
+        expect(page).not_to have_content "投稿者: #{post3.user.username}"
+        expect(current_path).to eq search_path
       end
     end
   end

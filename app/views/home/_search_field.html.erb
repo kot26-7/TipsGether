@@ -1,0 +1,7 @@
+<div id='searching-form'>
+  <%= form_tag(search_path, method: 'get', class: 'form-inline my-2 my-lg-0') do %>
+    <%= select_tag(:option, options_for_select([['検索対象', 1],['ユーザー', 2], ['投稿', 3]]), class: 'btn btn-secondary my-2 my-sm-0', id: 'search-select') %>
+    <%= text_field_tag(:keyword, '', placeholder: 'Search', class: 'form-control mr-sm-2') %>
+    <%= submit_tag '検索', class: 'btn btn-success my-2 my-sm-0' %>
+  <% end %>
+</div>

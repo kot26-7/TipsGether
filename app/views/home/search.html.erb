@@ -1,0 +1,34 @@
+<% provide(:title, 'Search Results') %>
+<div id='indx-list' class='col-sm-8 col-md-8'>
+  <% if @results_u.present? %>
+    <h4>ユーザーの検索結果</h4>
+    <div class='results'>
+      <% @results_u.each do |user| %>
+        <div class='result-field col-sm-8 col-md-8'>
+          <%= link_to user_path(user) do %>
+            <h6><%= "ユーザー名: #{user.username}" %></h6>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% elsif @results_p.present? %>
+    <h4>投稿の検索結果</h4>
+    <div class='results'>
+      <% @results_p.each do |post| %>
+        <div class='result-field col-sm-8 col-md-8 r-post'>
+          <%= link_to post_path(post) do %>
+            <h6><%= "タイトル: #{post.title}" %></h6>
+          <% end %>
+          <%= link_to user_path(post.user) do %>
+            <h6><%= "投稿者: #{post.user.username}" %></h6>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <h5>検索が一致しませんでした。再度お試しください。</h5>
+    <% if @err_msg.present? %>
+      <h6 id='error-msg'><%= @err_msg %></h6>
+    <% end %>
+  <% end %>
+</div>

@@ -3,7 +3,7 @@
 TipsGetherは、日々学んだことや役立つ情報を、気軽にメモ・管理・他者にシェアをすることができます。
 
 ## :globe_with_meridians: APP URL
-### **https://tpsgthr-20201028125036.herokuapp.com/**
+### **https://tpsgthr-kot26.herokuapp.com/**
 
 
 ## :wrench: 使用方法

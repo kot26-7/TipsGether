@@ -8,8 +8,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.includes(:favorites)
-    @posts = @posts.where(published: true).includes(:favorites) unless current_user == @user
+    posts = @user.posts.includes(:favorites)
+    posts = posts.where(published: true).includes(:favorites) unless current_user == @user
+    @posts = posts.page(params[:page]).per(1)
   end
 
   def edit

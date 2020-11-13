@@ -113,6 +113,26 @@ table {
     margin: 10px 0;
   }
 }
+
+/*===  Pagenation  ===*/
+#pagenation_zone {
+  margin: 15px 0 0;
+  display: flex;
+  .pagination {
+    margin: 0 auto;
+    li a {
+      border: none;
+      color: black;
+    }
+    .active a {
+      background: lightgray;
+      border-radius: 15px;
+    }
+    li a:hover {
+      border-radius: 15px;
+    }
+  }
+}
 /*===  Home#index  ===*/
 .home-index {
   margin-top: 100px;

@@ -2,4 +2,5 @@
 <div id='indx-list' class='col-sm-8 col-md-8'>
   <h4>ユーザー一覧</h4>
   <%= render partial: 'user', collection: @users %>
+  <%= paginate @users %>
 </div>

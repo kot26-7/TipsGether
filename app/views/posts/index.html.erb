@@ -3,6 +3,7 @@
   <% if @posts.present? %>
     <h4>投稿一覧</h4>
     <%= render partial: 'post', collection: @posts %>
+    <%= paginate @posts %>
   <% else %>
     <h4>表示できる投稿が現在ありません。</h4>
   <% end %>

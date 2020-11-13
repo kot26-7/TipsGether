@@ -38,3 +38,21 @@ Post.create(
     }
   ]
 )
+30.times do |n|
+  name = Faker::Name.first_name
+  email = Faker::Internet.email
+  password = 'password'
+  User.create(username: name,
+               email: email,
+               password: password,
+              )
+end
+25.times do |n|
+  title = Faker::Movie.title
+  content = Faker::Books::Lovecraft.sentence
+  Post.create(user_id: 3,
+              title: title,
+              content: content,
+              published: true
+              )
+end
